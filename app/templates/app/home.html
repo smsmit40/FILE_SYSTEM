@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<h1>Hello {{user.username}}</h1>
+<div class="is-inline">
+<h1 class="is-inline">Sign Up</h1> or
+    <a class='is-inline' href="{% url 'signupuser' %}">Create An Account</a>
+<a></a>
+</div>
+<h3>{{ error }}</h3>
+<form method="POST">
+    {% csrf_token %}
+{{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+{% endblock %}

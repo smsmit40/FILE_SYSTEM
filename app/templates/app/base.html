@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<script src="https://kit.fontawesome.com/f45a27331e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar is-primary">
+   <a class="navbar-item" href="/">
+      <h1 class="has-text-white is-size-2">NOT DROPBOX</h1>
+    </a>
+    {% if user.is_authenticated %}
+    <div style="right: 0; position: absolute;" class="navbar-item has-dropdown is-hoverable is-align-content-right">
+        <a style="right: 0px" class="navbar-link has-text-white is-size-2">
+          USER
+        </a>
+
+        <div class="navbar-dropdown">
+          <a href="{% url 'logout' %}" class="navbar-item">
+            Logout
+          </a>
+          <a href="{% url 'feed' %}" class="navbar-item">
+            FEED
+          </a>
+        </div>
+      </div>
+</nav>
+    {% endif %}
+</nav>
+{% block content %}{% endblock %}
+</body>
+</html>

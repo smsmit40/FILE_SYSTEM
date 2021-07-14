@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<h1>Welcome to your feed:</h1>
+<div class="columns">
+  <div class="column">
+    <h1>FILE NAME</h1>
+  </div>
+  <div class="column">
+    <h1>DESCRIPTION</h1>
+  </div>
+  <div class="column">
+
+  </div>
+  <div class="column">
+  </div>
+</div>
+{% for file in files %}
+<div class="columns">
+  <div class="column">
+    <a href= "{% url 'download' file.id  %}">Download {{ file.name }}</a>
+  </div>
+  <div class="column">
+    <h1>{{file.description}}</h1>
+  </div>
+  <div class="column">
+    <a class='fas fa-edit' href= "{% url 'viewfile' file.id  %}">EDIT</a>
+  </div>
+  <div class="column">
+    <a class="delete is-medium" href= "{% url 'deletefile' file.id  %}">DELETE</a>
+  </div>
+</div>
+
+{% endfor %}
+<div class="buttons">
+  <button class="button is-link"><a class='has-text-white is-size-2' href="add_file/">ADD FILE</a></button>
+</div>
+
+{% endblock %}
